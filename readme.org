@@ -1,0 +1,29 @@
+#+title: readme
+
+* Usage
+Change the .env into the correct postgres address.
+
+Run the app, pipe the csv into it
+#+begin_src
+  make run < test.csv
+#+end_src
+
+The postgres database is now populated.
+
+* relations
+原文,病名,病因,病机,症状,证候,治法,方剂,药材,用法,加减法,禁忌,其他治疗方法,
+
+1. sources
+2. diseases
+3. causes
+4. mechanisms
+5. symptoms
+6. symptomx
+7. methods
+8. formulae
+9. herbs
+10. usages
+11. variations
+12. contraindications
+13. alternatives
+14. remarks
