@@ -1,14 +1,58 @@
 #+title: readme
 
-* Usage
-Change the .env into the correct postgres address.
-
-Run the app, pipe the csv into it
-#+begin_src
-  make run < test.csv
+* Requirements
+** Go
+On macOS
+#+begin_src shell
+  brew install go
 #+end_src
 
-The postgres database is now populated.
+** Postgresql
+On macOS, follow the instructions [[https://wiki.postgresql.org/wiki/Homebrew][here]].
+#+begin_src shell
+  brew install postgresql
+#+end_src
+
+** Templ
+After installing go.
+#+begin_src shell
+  go install github.com/a-h/templ/cmd/templ@latest
+#+end_src
+
+** Tern
+#+begin_src shell
+  go install github.com/jackc/tern/v2@latest
+#+end_src
+
+* Usage
+Change the .env into the correct postgres address, e.g. change jacky
+into your username.
+#+begin_src shell
+  export DATABASE_URL=postgres://jacky@localhost/cmed
+#+end_src
+
+Create a database in postgresql.
+#+begin_src shell
+  psql
+
+  create database cmed;
+  quit
+#+end_src
+
+Migrate the sql.
+#+begin_src shell
+  make sql_migrate
+#+end_src
+
+Run the parser, pipe the csv into it
+#+begin_src shell
+  make parser < test.csv
+#+end_src
+
+Run the demo. Open the browser and go to address localhost:9696
+#+begin_src shell
+  make demo
+#+end_src
 
 * relations
 原文,病名,病因,病机,症状,证候,治法,方剂,药材,用法,加减法,禁忌,其他治疗方法,

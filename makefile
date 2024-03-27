@@ -1,6 +1,6 @@
 include .env
 
-demo:
+demo: templ
 	go run cmd/demo/main.go
 
 parser:
@@ -8,6 +8,9 @@ parser:
 
 templ:
 	templ generate -path internal/templates/
+
+sql_migrate:
+	$(MAKE) -C migrations
 
 sql_reset:
 	$(MAKE) -C migrations reset
