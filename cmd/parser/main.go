@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"cmed-relation/data"
+	"cmed-relation/internal/data"
 	"context"
 	"encoding/csv"
 	"errors"
@@ -337,7 +337,7 @@ func processFormulae(s string, source *data.Source, db data.DB) error {
 }
 
 func processHerbs(s string, source *data.Source, db data.DB) error {
-	ss := strings.Split(s, "\n")
+	ss := strings.Split(s, " ")
 	for _, v := range ss {
 		if v != "" {
 			// The syntax of herb is like this herbname(process)

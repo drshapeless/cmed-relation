@@ -1,0 +1,33 @@
+package templates
+
+import "cmed-relation/internal/data"
+
+templ SearchPage() {
+	<form>
+		<label>
+			name
+			<input type="text" name="name"/>
+			<br/>
+		</label>
+		<button hx-post="/search/disease" hx-include="closest form" hx-target="#result" hx-swap="innerHTML">
+			search disease
+		</button>
+		<button hx-post="/search/herb" hx-include="closest form" hx-target="#result" hx-swap="innerHTML">
+			search herb
+		</button>
+		<button hx-post="/search/formula" hx-include="closest form" hx-target="#result" hx-swap="innerHTML">
+			search formula
+		</button>
+	</form>
+	<div id="result"></div>
+}
+
+templ SourceResult(sources []data.Source) {
+	<ol>
+		for _, v := range sources {
+			<li>
+				{ v.Content }
+			</li>
+		}
+	</ol>
+}
